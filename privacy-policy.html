@@ -4,135 +4,557 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>นโยบายความเป็นส่วนตัว — Siriraj Rx Shift (Google Calendar Sync)</title>
+<meta name="description" content="Privacy policy for the Google Calendar Sync feature of Siriraj Rx Shift — what data is accessed, how it is protected, and how to delete it.">
 <style>
   :root {
-    --bg: #ffffff;
-    --fg: #1a1a1a;
-    --muted: #5a5a5a;
-    --border: #e2e2e2;
-    --accent: #1e40af;
-    --card-bg: #f7f7f8;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #5a5a5a; --border: #e2e2e2;
+    --accent: #1e40af; --card-bg: #f7f7f8; --warn-bg: #fff8e6; --warn-border: #e8c765;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #14161a;
-      --fg: #e8e8e8;
-      --muted: #a0a0a0;
-      --border: #2c2f36;
-      --accent: #7fa2ff;
-      --card-bg: #1c1f26;
+      --bg: #14161a; --fg: #e8e8e8; --muted: #a0a0a0; --border: #2c2f36;
+      --accent: #7fa2ff; --card-bg: #1c1f26; --warn-bg: #2a2416; --warn-border: #6b5a2a;
     }
   }
   * { box-sizing: border-box; }
   body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--fg);
+    margin: 0; background: var(--bg); color: var(--fg);
     font-family: "Noto Sans Thai", "Segoe UI", system-ui, -apple-system, sans-serif;
-    line-height: 1.7;
+    line-height: 1.75;
   }
-  main {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 2.5rem 1.25rem 5rem;
-  }
-  h1 {
-    font-size: 1.6rem;
-    margin-bottom: 0.25rem;
-  }
-  .updated {
-    color: var(--muted);
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
-  }
-  h2 {
-    font-size: 1.15rem;
-    margin-top: 2.2rem;
-    padding-bottom: 0.4rem;
-    border-bottom: 1px solid var(--border);
-  }
+  main { max-width: 820px; margin: 0 auto; padding: 2.5rem 1.25rem 5rem; }
+  h1 { font-size: 1.6rem; margin-bottom: .25rem; line-height: 1.35; }
+  h2 { font-size: 1.15rem; margin-top: 2.4rem; padding-bottom: .4rem; border-bottom: 1px solid var(--border); }
+  h3 { font-size: 1rem; margin-top: 1.8rem; color: var(--fg); }
+  .updated { color: var(--muted); font-size: .9rem; margin-bottom: 1.25rem; }
   a { color: var(--accent); }
   ol, ul { padding-left: 1.4rem; }
-  li { margin-bottom: 0.4rem; }
-  .summary-en {
-    margin-top: 3rem;
-    padding: 1.25rem 1.5rem;
-    background: var(--card-bg);
-    border-radius: 10px;
-    font-size: 0.95rem;
+  li { margin-bottom: .4rem; }
+  code, .scope-name {
+    background: var(--card-bg); padding: .12rem .38rem; border-radius: 4px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .88em;
+    overflow-wrap: break-word;
   }
-  .summary-en h2 { border-bottom: none; margin-top: 0; }
-  .scope-name {
-    background: var(--card-bg);
-    padding: 0.15rem 0.4rem;
-    border-radius: 4px;
-    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-    font-size: 0.9em;
+  .table-wrap { overflow-x: auto; margin: 1rem 0; }
+  table { border-collapse: collapse; width: 100%; min-width: 680px; font-size: .93rem; }
+  /* คอลัมน์ชื่อ scope ต้องอ่านเป็นก้อนเดียว ไม่ตัดกลางคำ — ตารางเลื่อนแนวนอนแทน */
+  td:first-child .scope-name { white-space: nowrap; }
+  th, td { border: 1px solid var(--border); padding: .55rem .7rem; text-align: left; vertical-align: top; }
+  th { background: var(--card-bg); font-weight: 600; }
+  .lang-switch {
+    display: flex; gap: .6rem; flex-wrap: wrap; margin-bottom: 2rem;
+    padding-bottom: 1.25rem; border-bottom: 1px solid var(--border);
   }
-  footer {
-    margin-top: 3rem;
-    color: var(--muted);
-    font-size: 0.85rem;
+  .lang-switch a {
+    padding: .35rem .8rem; border: 1px solid var(--border); border-radius: 999px;
+    text-decoration: none; font-size: .9rem;
   }
+  .callout {
+    background: var(--warn-bg); border: 1px solid var(--warn-border);
+    border-radius: 10px; padding: 1rem 1.25rem; margin: 1.25rem 0;
+  }
+  .callout p:first-child { margin-top: 0; }
+  .callout p:last-child { margin-bottom: 0; }
+  .divider-en { margin-top: 4rem; padding-top: 2rem; border-top: 3px double var(--border); }
+  footer { margin-top: 3.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border); color: var(--muted); font-size: .85rem; }
 </style>
 </head>
 <body>
 <main>
-  <h1>นโยบายความเป็นส่วนตัว — Siriraj Rx Shift (Google Calendar Sync)</h1>
-  <p class="updated">อัปเดตล่าสุด: 26 กรกฎาคม 2569</p>
 
-  <p>เอกสารนี้ครอบคลุมเฉพาะฟีเจอร์ <strong>Google Calendar Sync</strong> ของระบบ Siriraj Rx Shift ("ระบบ", "เรา") ซึ่งเป็นระบบจัดตารางเวรภายในของฝ่ายเภสัชกรรม โรงพยาบาลศิริราช ไม่ใช่นโยบายความเป็นส่วนตัวของทั้งระบบ</p>
-
-  <h2>1. ภาพรวม</h2>
-  <p>ฟีเจอร์ Google Calendar Sync เป็นทางเลือกเสริม (opt-in) ที่ช่วยให้ผู้ใช้เห็นเวรของตัวเองในปฏิทิน Google ส่วนตัวโดยอัตโนมัติ โดยไม่ต้องคัดลอกด้วยมือ</p>
-
-  <h2>2. ข้อมูลที่เราเข้าถึงและเก็บ</h2>
-  <p>เมื่อผู้ใช้กดยืนยันเชื่อมต่อ Google Calendar เราขอสิทธิ์ (scope) <span class="scope-name">calendar.events</span> ซึ่งใช้เพื่อ:</p>
-  <ul>
-    <li><strong>สร้าง</strong> event ในปฏิทินของผู้ใช้ ตรงกับเวรที่ผู้ใช้ถืออยู่ (วันที่ เวลาเริ่ม-จบ ประเภทเวร หน่วยงาน/ห้องที่ประจำ)</li>
-    <li><strong>แก้ไข</strong> event เหล่านั้นเมื่อเวรมีการเปลี่ยนแปลง (ยก/แลกเวร)</li>
-    <li><strong>ลบ</strong> event เหล่านั้นเมื่อเวรถูกยกเลิก หรือเมื่อผู้ใช้ยกเลิกการเชื่อมต่อ</li>
-  </ul>
-  <p>เรา<strong>ไม่อ่าน</strong> event อื่นที่มีอยู่ก่อนแล้วในปฏิทินของผู้ใช้ <strong>ไม่เข้าถึง</strong>ปฏิทินอื่นนอกจากปฏิทินหลักที่ผู้ใช้อนุญาต และ<strong>ไม่ดึงข้อมูลใดจากปฏิทิน</strong>กลับเข้าระบบ — การไหลของข้อมูลเป็นทิศทางเดียว (ระบบ → ปฏิทินผู้ใช้) เท่านั้น</p>
-  <p><strong>การอัปเดตอัตโนมัติ (opt-in):</strong> หากผู้ใช้เปิดใช้ "อัปเดตอัตโนมัติ" ระบบจะตั้งงานเบื้องหลัง (ในบัญชีของผู้ใช้เอง) ที่อ่าน<strong>เฉพาะรายการเวรของผู้ใช้คนนั้น</strong>จากฐานข้อมูลตารางเวรของระบบเป็นระยะ เพื่อให้ปฏิทินตรงกับเวรล่าสุดแม้ไม่ได้เปิดแอป — อ่านอย่างเดียว ไม่อ่านข้อมูลของผู้อื่น และปิดได้ตลอดเวลา</p>
-  <p>ข้อมูลที่ปรากฏใน event เป็นข้อมูลตารางงานของบุคลากร (เวรของเภสัชกร) เท่านั้น เราไม่เก็บ ไม่ประมวลผล และไม่เกี่ยวข้องกับข้อมูลผู้ป่วยหรือข้อมูลสุขภาพใดๆ ในฟีเจอร์นี้หรือในระบบส่วนอื่น</p>
-
-  <h2>3. วัตถุประสงค์การใช้ข้อมูล</h2>
-  <p>ใช้เพื่อวัตถุประสงค์เดียวเท่านั้นคือเตือนความจำเวรทำงานของผู้ใช้ผ่านปฏิทินส่วนตัวที่ผู้ใช้ใช้งานอยู่แล้วในชีวิตประจำวัน เราไม่ใช้ข้อมูลนี้เพื่อการโฆษณา ไม่ขาย ไม่ให้เช่า ไม่แชร์กับบุคคลหรือบริษัทภายนอกใดๆ</p>
-
-  <h2>4. การเก็บรักษาและระยะเวลา</h2>
-  <ul>
-    <li>Mapping ระหว่างเวรกับ event (shift ↔ event ID) จะถูกเก็บไว้ตราบเท่าที่ผู้ใช้ยังเปิดใช้ฟีเจอร์นี้อยู่ เพื่อให้ระบบรู้ว่าต้องอัปเดต/ลบ event ไหนเมื่อเวรเปลี่ยน</li>
-    <li>เมื่อผู้ใช้ยกเลิกการเชื่อมต่อ ระบบจะลบ event ที่สร้างไว้ทั้งหมดออกจากปฏิทินผู้ใช้ และลบ mapping ที่เกี่ยวข้องออกจากระบบ</li>
-  </ul>
-
-  <h2>5. การแชร์ข้อมูลกับบุคคลที่สาม</h2>
-  <p>เราไม่แชร์ข้อมูลจาก Google Calendar API กับบุคคลที่สามรายใด การเข้าถึง Google Calendar API เป็นไปตาม <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a> รวมถึงข้อกำหนด Limited Use</p>
-
-  <h2>6. สิทธิ์ของผู้ใช้ / วิธียกเลิกการเชื่อมต่อ</h2>
-  <p>ผู้ใช้สามารถยกเลิกการเชื่อมต่อได้ตลอดเวลาโดย:</p>
-  <ol>
-    <li>กดปุ่ม "ยกเลิกการเชื่อมต่อ Google Calendar" ภายในระบบ (ระบบจะลบ event ที่สร้างไว้ทั้งหมดให้อัตโนมัติ) หรือ</li>
-    <li>ถอนสิทธิ์โดยตรงที่ <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account permissions</a> — เลือกแอป "Siriraj Rx Shift" แล้วเลือกยกเลิก</li>
-  </ol>
-  <p>ผู้ใช้สามารถขอให้ลบข้อมูล mapping ที่เกี่ยวข้องออกจากระบบได้ทันทีโดยติดต่อผู้ดูแลระบบตามช่องทางในหัวข้อ "ติดต่อ"</p>
-
-  <h2>7. ความปลอดภัย</h2>
-  <p>ข้อมูลถูกจัดเก็บในโครงสร้างพื้นฐานของ Google (Google Sheets/Firebase, region asia-southeast1) มีการบันทึก audit log การเชื่อมต่อ/ยกเลิกการเชื่อมต่อทุกครั้ง การเข้าถึงระบบจำกัดเฉพาะบุคลากรฝ่ายเภสัชกรรมที่มีบัญชีในระบบเท่านั้น</p>
-
-  <h2>8. การเปลี่ยนแปลงนโยบายนี้</h2>
-  <p>หากมีการเปลี่ยนแปลงสาระสำคัญของนโยบายนี้ เราจะปรับปรุงวันที่ "อัปเดตล่าสุด" ด้านบน และแจ้งผู้ใช้ผ่านช่องทางประกาศภายในระบบ</p>
-
-  <h2>9. ติดต่อ</h2>
-  <p>หากมีคำถามเกี่ยวกับนโยบายความเป็นส่วนตัวนี้ หรือต้องการขอลบข้อมูล ติดต่อ: <strong><a href="mailto:norapol.uttho@gmail.com">norapol.uttho@gmail.com</a></strong></p>
-  <p>แอปหลัก: <strong><a href="index.html">Siriraj Rx Shift</a></strong></p>
-
-  <div class="summary-en">
-    <h2>English summary (for reviewer convenience — Thai text above is authoritative)</h2>
-    <p>This privacy policy covers only the optional Google Calendar Sync feature of Siriraj Rx Shift, an internal duty-roster system for the Pharmacy Department, Siriraj Hospital. With user consent, the app uses the <span class="scope-name">calendar.events</span> scope to create/update/delete calendar events representing the user's own work shifts (date, time, shift type, assigned unit/room) on their personal calendar. The app does not read pre-existing events, does not access other calendars, does not pull any data back from Calendar into the system, and never handles patient or health information. Users can revoke access at any time in-app or via <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account permissions</a>; doing so deletes all events the app created. Data is never sold, rented, or shared with third parties, and use complies with the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
+  <div class="lang-switch">
+    <a href="#th">ภาษาไทย</a>
+    <a href="#en">English</a>
+    <a href="/">← หน้าแรก / Home</a>
   </div>
 
-  <footer>Siriraj Rx Shift — Pharmacy Department, Siriraj Hospital</footer>
+  <h1 id="th">นโยบายความเป็นส่วนตัว — Siriraj Rx Shift (Google Calendar Sync)</h1>
+  <p class="updated">อัปเดตล่าสุด: 3 สิงหาคม 2569 (2026-08-03) · <a href="#en">English version below</a></p>
+
+  <p>เอกสารนี้ครอบคลุม<strong>เฉพาะฟีเจอร์ Google Calendar Sync</strong> ของระบบ Siriraj Rx Shift
+  ("ระบบ", "เรา") ซึ่งเป็นระบบจัดตารางเวรภายในของฝ่ายเภสัชกรรม โรงพยาบาลศิริราช
+  (ระบบหลักใช้ชื่อ + รหัสผ่านภายใน ไม่ผ่านบัญชี Google และไม่ได้เข้าถึงข้อมูล Google ของผู้ใช้)</p>
+
+  <h2>1. ภาพรวม</h2>
+  <p>ฟีเจอร์ Google Calendar Sync เป็นทางเลือกเสริมแบบ <strong>opt-in</strong> ที่ช่วยให้ผู้ใช้เห็นเวรของตัวเอง
+  ในปฏิทิน Google ส่วนตัวโดยอัตโนมัติ โดยไม่ต้องคัดลอกด้วยมือ</p>
+  <p>ผู้ใช้ที่ไม่กดเปิดฟีเจอร์นี้ <strong>จะไม่ถูกขอสิทธิ์ Google ใดๆ ทั้งสิ้น</strong> และใช้ระบบได้ตามปกติครบทุกฟังก์ชัน</p>
+
+  <h2>2. สิทธิ์ (OAuth scope) ที่เราขอ และใช้ทำอะไร</h2>
+  <p>ฟีเจอร์นี้ทำงานบน Google Apps Script โปรเจกต์แยกต่างหาก (<code>calendar-sync-app</code>) ซึ่งขอสิทธิ์
+  <strong>เพียง 4 รายการนี้เท่านั้น</strong> — ตรงกับที่ประกาศไว้ใน manifest ของแอปทุกตัว ไม่มีมากกว่านี้</p>
+  <div class="table-wrap">
+  <table>
+    <tr><th>Scope</th><th>ใช้ทำอะไร</th><th>ขอบเขตที่จำกัดไว้</th></tr>
+    <tr>
+      <td><span class="scope-name">.../auth/calendar</span></td>
+      <td>สร้าง / แก้ไข / ลบ event ที่แทนเวรของผู้ใช้เอง และให้ผู้ใช้<strong>เลือกหรือสร้างปฏิทินปลายทาง</strong>ได้
+        (เช่น สร้างปฏิทินแยกชื่อ "Siriraj Rx Shifts" เพื่อไม่ให้ปนกับปฏิทินส่วนตัว)</td>
+      <td>แก้ไข/ลบเฉพาะ event ที่ระบบนี้สร้างเอง — อ้างอิงจากตาราง "เวร ↔ event ID" ที่เก็บในพื้นที่ส่วนตัวของผู้ใช้ ·
+        ไม่นำเนื้อหา event ใดของผู้ใช้ไปเก็บหรือส่งออก · ไม่เข้าถึงปฏิทินของผู้อื่น</td>
+    </tr>
+    <tr>
+      <td><span class="scope-name">.../auth/script.scriptapp</span></td>
+      <td>สร้าง / ลบ time-based trigger <strong>ในบัญชีของผู้ใช้เอง</strong> เพื่อให้ปฏิทินอัปเดตตามเวรล่าสุด
+        แม้ผู้ใช้ปิดแอปอยู่</td>
+      <td>ติดตั้ง trigger ได้ตัวเดียว (<code>_autoSyncTick</code>) · ผู้ใช้เปิด/ปิดเองได้ตลอด ·
+        ไม่ให้สิทธิ์เข้าถึงบริการ Google อื่นเพิ่ม</td>
+    </tr>
+    <tr>
+      <td><span class="scope-name">.../auth/script.external_request</span></td>
+      <td>เรียก HTTPS ออกไปยัง<strong>ฐานข้อมูลของเราเอง</strong> (Firebase Realtime Database)
+        เพื่ออ่าน "เวรล่าสุดของผู้ใช้คนนี้" และเขียนใบเสร็จยืนยันว่าซิงค์สำเร็จ</td>
+      <td>ปลายทางเดียวคือ <code>siriraj-rx-shift-default-rtdb.asia-southeast1.firebasedatabase.app</code> ·
+        ไม่มีบริการบุคคลที่สามเกี่ยวข้อง · ไม่ส่งข้อมูล Google ของผู้ใช้ออกไป</td>
+    </tr>
+    <tr>
+      <td><span class="scope-name">.../auth/userinfo.email</span></td>
+      <td>อ่านอีเมลของบัญชี Google ที่ผู้ใช้เลือก เพื่อแสดงให้เห็นว่ากำลังจะซิงค์เข้าบัญชีไหน และกันการซิงค์ผิดบัญชี</td>
+      <td>ใช้แสดงผลและจับคู่บัญชีเท่านั้น · ไม่ส่งอีเมลออกนอกระบบ · ไม่ใช้ทำการตลาด</td>
+    </tr>
+  </table>
+  </div>
+
+  <div class="callout">
+    <p><strong>ทำไมต้องใช้ <code>calendar</code> ไม่ใช่ <code>calendar.events</code> ที่แคบกว่า:</strong>
+    เพราะฟีเจอร์นี้ให้ผู้ใช้ <strong>เลือกปฏิทินปลายทางหรือสร้างปฏิทินใหม่แยกต่างหาก</strong> ได้
+    ซึ่งเป็นการจัดการตัวปฏิทิน ไม่ใช่แค่ event — <code>calendar.events</code> ทำไม่ได้
+    ทางเลือกเดียวถ้าใช้ scope แคบกว่านี้คือบังคับเขียนลงปฏิทินหลักของผู้ใช้เสมอ
+    ซึ่งเป็นผลเสียต่อความเป็นส่วนตัวของผู้ใช้เองมากกว่า (ปนกับปฏิทินส่วนตัว ปิด/ซ่อนแยกไม่ได้)</p>
+  </div>
+
+  <h2>3. ข้อมูลที่เราเข้าถึง เก็บ และเก็บไว้ที่ไหน</h2>
+  <div class="table-wrap">
+  <table>
+    <tr><th>ข้อมูล</th><th>เก็บที่ไหน</th><th>ใครเข้าถึงได้</th></tr>
+    <tr>
+      <td><strong>OAuth access / refresh token</strong></td>
+      <td><strong>เราไม่เก็บเลย</strong> — Google Apps Script เป็นผู้ถือและจัดการทั้งหมดในโครงสร้างพื้นฐานของ Google
+        เราไม่มีสำเนา ไม่มีที่เก็บ ไม่มีทางส่งต่อ</td>
+      <td>ไม่มีใครในฝั่งเรา</td>
+    </tr>
+    <tr>
+      <td><strong>Mapping "เวร ↔ event ID"</strong> และปฏิทินปลายทางที่เลือก</td>
+      <td><code>PropertiesService.getUserProperties()</code> — พื้นที่เก็บข้อมูลส่วนตัวของผู้ใช้แต่ละคน
+        ที่ Google จัดสรรให้ ผูกกับบัญชีผู้ใช้คนนั้นโดยตรง</td>
+      <td><strong>เฉพาะการรันสคริปต์ในนามของผู้ใช้คนนั้นเอง</strong> — ผู้พัฒนาเปิดดูไม่ได้
+        ผู้ใช้คนอื่นเข้าไม่ถึง แม้แต่ผู้ดูแลระบบก็อ่านไม่ได้</td>
+    </tr>
+    <tr>
+      <td><strong>อีเมลบัญชี Google ที่เลือก</strong></td>
+      <td>หน่วยความจำชั่วคราวระหว่างรัน + <code>PropertiesService</code> ของผู้ใช้เอง</td>
+      <td>เช่นเดียวกับข้างบน</td>
+    </tr>
+    <tr>
+      <td><strong>รายการเวรของผู้ใช้ (feed)</strong></td>
+      <td>Firebase Realtime Database region <code>asia-southeast1</code> — เขียนโดยระบบหลัก
+        อ่านโดย trigger ของผู้ใช้</td>
+      <td>ดูข้อ 5.6</td>
+    </tr>
+    <tr>
+      <td><strong>ใบเสร็จยืนยันการซิงค์ (ack)</strong></td>
+      <td>Firebase เช่นกัน — เก็บแค่จำนวน event ที่สร้าง/แก้/ลบ และเวลา ไม่มีเนื้อหา event</td>
+      <td>ดูข้อ 5.6</td>
+    </tr>
+  </table>
+  </div>
+
+  <p><strong>สิ่งที่ปรากฏใน calendar event:</strong> วันที่ · เวลาเริ่ม-จบ · ประเภทเวร (เช่น "เวรเช้า") ·
+  หน่วยงาน/ห้องที่ประจำ <strong>เท่านั้น</strong></p>
+
+  <p><strong>สิ่งที่ไม่มีวันเกี่ยวข้อง:</strong> ข้อมูลผู้ป่วย · ข้อมูลสุขภาพ (PHI/PHR) · เลข HN · ข้อมูลเวชระเบียน —
+  ระบบทั้งระบบเป็นระบบจัดเวรบุคลากร ไม่ใช่ระบบเวชระเบียน จึงไม่เคยแตะข้อมูลเหล่านี้เลยตั้งแต่ต้น</p>
+
+  <p><strong>ทิศทางการไหลของข้อมูลเป็นทางเดียว:</strong> ระบบ → ปฏิทินของผู้ใช้ —
+  เรา<strong>ไม่แตะต้อง</strong> event ที่ระบบไม่ได้สร้าง <strong>ไม่เข้าถึง</strong>ปฏิทินอื่นที่ผู้ใช้ไม่ได้เลือก
+  และ<strong>ไม่ดึงเนื้อหาใดจากปฏิทิน</strong>กลับเข้าระบบ — ระหว่างซิงค์ ระบบดูรายการ event
+  เฉพาะในช่วงวันที่ของชุดเวรบนปฏิทินปลายทาง เพียงเพื่อยืนยันว่า event ที่ระบบสร้างไว้ยังอยู่ครบ
+  (ตรวจเฉพาะ event ID กับช่อง location) ไม่อ่านเนื้อหา และไม่มีข้อมูลของ event อื่นถูกเก็บหรือส่งออก</p>
+
+  <h2>4. วัตถุประสงค์การใช้ข้อมูล และ Limited Use</h2>
+  <p>ใช้เพื่อวัตถุประสงค์เดียวคือ <strong>เตือนความจำเวรทำงาน</strong> ของผู้ใช้ผ่านปฏิทินที่ผู้ใช้ใช้อยู่แล้ว</p>
+  <p>การใช้งานและถ่ายโอนข้อมูลที่ได้รับจาก Google API เป็นไปตาม
+  <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>
+  รวมถึงข้อกำหนด <strong>Limited Use</strong> โดยเฉพาะ เราขอยืนยันว่า:</p>
+  <ul>
+    <li>ไม่ใช้ข้อมูลเพื่อการโฆษณาทุกรูปแบบ</li>
+    <li>ไม่ขาย ไม่ให้เช่า ไม่แลกเปลี่ยนข้อมูล</li>
+    <li>ไม่โอนข้อมูลให้บุคคลที่สาม เว้นแต่ (ก) ได้รับความยินยอมโดยชัดแจ้งจากผู้ใช้ (ข) เพื่อความมั่นคงปลอดภัย
+      หรือ (ค) เมื่อกฎหมายบังคับ</li>
+    <li><strong>ไม่ให้มนุษย์อ่านข้อมูลผู้ใช้</strong> เว้นแต่ (ก) ผู้ใช้ยินยอมโดยชัดแจ้งเพื่อแก้ปัญหาเฉพาะราย
+      (ข) เพื่อความมั่นคงปลอดภัย หรือ (ค) เมื่อกฎหมายบังคับ</li>
+    <li><strong>ไม่ใช้ข้อมูลจาก Google Workspace API เพื่อพัฒนา ฝึกฝน หรือปรับปรุงโมเดล AI/ML ใดๆ</strong>
+      ทั้งของเราเองและของบุคคลที่สาม — ระบบนี้ไม่มีการเรียกใช้บริการ AI/ML ใดๆ เลย</li>
+  </ul>
+
+  <h2>5. มาตรการคุ้มครองข้อมูล (Data Protection)</h2>
+
+  <h3>5.1 การเข้ารหัสระหว่างรับส่ง (in transit)</h3>
+  <p>การรับส่งข้อมูลทุกเส้นทางบังคับใช้ <strong>HTTPS/TLS 1.2 ขึ้นไป</strong> ไม่มีช่องทางที่เป็น HTTP ธรรมดา:
+  เบราว์เซอร์ผู้ใช้ ↔ Apps Script web app · Apps Script ↔ Google Calendar API ·
+  Apps Script ↔ Firebase Realtime Database (<code>UrlFetchApp</code> ปฏิเสธ certificate ที่ไม่ถูกต้องโดยอัตโนมัติ)</p>
+
+  <h3>5.2 การเข้ารหัสขณะจัดเก็บ (at rest)</h3>
+  <p>ข้อมูลทั้งหมดอยู่ในโครงสร้างพื้นฐานของ Google (Apps Script <code>PropertiesService</code>, Google Sheets,
+  Firebase Realtime Database) ซึ่ง <strong>เข้ารหัสขณะจัดเก็บด้วย AES-256 โดยค่าเริ่มต้น</strong>
+  เราไม่มีเซิร์ฟเวอร์ ไม่มีฐานข้อมูล และไม่มีดิสก์ของตัวเองที่เก็บข้อมูลผู้ใช้เลยแม้แต่จุดเดียว</p>
+
+  <h3>5.3 การจำกัดสิทธิ์เข้าถึง — ผู้พัฒนาเข้าถึงข้อมูล Google ของผู้ใช้ไม่ได้เลย</h3>
+  <p>นี่คือมาตรการที่แข็งแรงที่สุดของสถาปัตยกรรมนี้ และเป็นผลจากการออกแบบโดยตั้งใจ:</p>
+  <ul>
+    <li>แอปทำงานในโหมด <strong>"execute as user accessing"</strong> — ทุกการเรียก Calendar API
+      รันในนามของผู้ใช้คนนั้น ด้วยสิทธิ์ของผู้ใช้คนนั้น ไม่ใช่ในนามผู้พัฒนา</li>
+    <li><strong>ไม่มี service account · ไม่มี domain-wide delegation · ไม่มี API key ฝั่งเซิร์ฟเวอร์</strong>
+      ที่ให้ผู้พัฒนาเข้าถึงปฏิทินของใครได้</li>
+    <li>Mapping และการตั้งค่าเก็บใน <code>PropertiesService.getUserProperties()</code> ซึ่ง Google
+      แยกพื้นที่ให้<strong>รายบุคคล</strong> — ผู้พัฒนาเปิด Apps Script editor ก็อ่านของผู้ใช้คนอื่นไม่ได้
+      ไม่มี API ให้ทำ</li>
+    <li>ผลลัพธ์: <strong>แม้บัญชีผู้พัฒนาถูกยึด ผู้โจมตีก็ยังอ่านปฏิทินหรือ mapping ของผู้ใช้ไม่ได้</strong></li>
+  </ul>
+
+  <h3>5.4 การจัดการ token</h3>
+  <p>เราไม่เก็บ ไม่บันทึก (log) และไม่ส่งต่อ OAuth token ใดๆ ทั้ง access token และ refresh token
+  อยู่ในความดูแลของ Google Apps Script ทั้งหมด เมื่อผู้ใช้ถอนสิทธิ์ที่
+  <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account permissions</a>
+  สิทธิ์จะหมดผลทันทีโดยไม่ต้องรอให้ฝั่งเราทำอะไร</p>
+
+  <h3>5.5 การแยกโปรเจกต์เพื่อจำกัดความเสียหาย (least privilege by isolation)</h3>
+  <p>ฟีเจอร์ Calendar ถูกแยกออกเป็น <strong>Apps Script โปรเจกต์และ Google Cloud project ต่างหาก</strong>
+  จากระบบหลักโดยเจตนา ระบบหลัก (ที่มีสิทธิ์ระดับสูงกว่าสำหรับงานหลังบ้านของผู้ดูแล) และโปรเจกต์ Calendar
+  <strong>ไม่แชร์ credential กันเลย</strong> ผู้ใช้ที่กดเชื่อมต่อปฏิทินจึงถูกขอสิทธิ์เฉพาะ 4 รายการในข้อ 2 เท่านั้น
+  ไม่มีสิทธิ์ของระบบหลังบ้านปนเข้ามาแม้แต่ตัวเดียว</p>
+
+  <h3>5.6 ข้อมูลตารางเวรใน Firebase (feed / ack)</h3>
+  <p><code>calFeed</code> เก็บรายการเวรของผู้ใช้ ระบุด้วย<strong>ชื่อเรียกภายในหน่วยงาน</strong>
+  (ไม่ใช่อีเมล ไม่ใช่ Google ID) เนื้อหาคือข้อมูลชุดเดียวกับ<strong>ตารางเวรกลางที่บุคลากรในหน่วยงานทุกคน
+  เห็นอยู่แล้วเป็นปกติ</strong> ส่วน <code>calAck</code> เก็บเพียงตัวเลขสรุป (สร้าง/แก้/ลบ กี่รายการ เมื่อไหร่)
+  ไม่มีเนื้อหา event</p>
+  <p>ฐานข้อมูลนี้อยู่ใน region <code>asia-southeast1</code> (สิงคโปร์) เข้ารหัสขณะจัดเก็บ และ
+  <strong>ไม่มีข้อมูลที่ได้จาก Google API ของผู้ใช้เก็บอยู่เลย</strong> — ไม่มี token ไม่มี event ID
+  ไม่มีเนื้อหาปฏิทิน</p>
+
+  <h3>5.7 การบันทึกและตรวจสอบย้อนหลัง</h3>
+  <p>การรันสคริปต์ทุกครั้งถูกบันทึกโดยอัตโนมัติใน <strong>Google Cloud Logging (Stackdriver)</strong>
+  ตามค่าที่ตั้งไว้ในโปรเจกต์ และการซิงค์แต่ละรอบเขียน "ใบเสร็จ" (<code>calAck</code>) ที่ระบุเวลาและจำนวน
+  event ที่สร้าง/แก้/ลบ เพื่อให้ตรวจย้อนได้ว่าปฏิทินถูกแก้ไปกี่รายการเมื่อไหร่
+  บันทึกเหล่านี้ <strong>ไม่บันทึกเนื้อหา event และไม่บันทึก token ใดๆ</strong></p>
+
+  <h3>5.8 ระยะเวลาเก็บรักษาและการลบ</h3>
+  <div class="table-wrap">
+  <table>
+    <tr><th>ข้อมูล</th><th>เก็บนานเท่าไร</th></tr>
+    <tr><td>Mapping เวร ↔ event ID</td><td>ตราบเท่าที่ผู้ใช้ยังเปิดฟีเจอร์นี้ · ลบทันทีเมื่อผู้ใช้กด "ยกเลิกการเชื่อมต่อ"</td></tr>
+    <tr><td>อีเมลบัญชีที่ผูกไว้</td><td>เช่นเดียวกัน</td></tr>
+    <tr><td><code>calFeed</code> ของผู้ใช้</td><td>เก็บเวรรุ่นล่าสุดของแต่ละเดือนที่เผยแพร่ · เมื่อเวรเดือนใดเปลี่ยน ข้อมูลเดือนนั้นถูกเขียนทับทั้งก้อน ไม่เก็บประวัติการแก้ไข</td></tr>
+    <tr><td><code>calAck</code> (ใบเสร็จ)</td><td>เก็บเฉพาะรายการล่าสุด · ถูกเขียนทับทุกครั้งที่ซิงค์</td></tr>
+  </table>
+  </div>
+  <p>เมื่อผู้ใช้กด <strong>"ยกเลิกการเชื่อมต่อ"</strong> ระบบจะ (1) <strong>ลบ event ที่ระบบสร้างไว้ทั้งหมด</strong>
+  ออกจากปฏิทินผู้ใช้ (2) ลบ mapping และการตั้งค่าออกจาก <code>PropertiesService</code>
+  (3) ลบ trigger ที่ติดตั้งไว้ และ (4) เพิกถอน authorization ของสคริปต์ — ทั้งหมดนี้จบภายในการกดปุ่มครั้งเดียว
+  (หาก event ใดลบไม่สำเร็จในจังหวะนั้น เช่น เข้าถึงปฏิทินไม่ได้ชั่วคราว ระบบจะแจ้งผู้ใช้
+  และเก็บ mapping เฉพาะรายการนั้นไว้เพื่อตามลบให้สำเร็จในครั้งถัดไป ไม่ปล่อยเป็น event ค้าง)</p>
+
+  <h3>5.9 การรับมือเหตุละเมิดข้อมูล</h3>
+  <p>หากพบเหตุที่กระทบต่อข้อมูลผู้ใช้ เราจะ (1) ระงับฟีเจอร์และเพิกถอน authorization ทันที
+  (2) แจ้งผู้ใช้ที่ได้รับผลกระทบทางอีเมลและผ่านประกาศในระบบ <strong>ภายใน 72 ชั่วโมง</strong>
+  นับจากเวลาที่ทราบเหตุ และ (3) แจ้ง Google ผ่านช่องทางที่กำหนด หากเหตุนั้นเกี่ยวข้องกับข้อมูลจาก Google API</p>
+
+  <h3>5.10 บุคลากรที่เข้าถึงได้</h3>
+  <p>ระบบนี้พัฒนาและดูแลโดย <strong>ผู้พัฒนาเพียงคนเดียว</strong> (ผู้ติดต่อในข้อ 9) ไม่มีพนักงาน
+  ไม่มีผู้รับจ้างช่วง ไม่มีบุคคลที่สามที่ได้รับสิทธิ์เข้าถึง บัญชี Google ของผู้พัฒนาที่เป็นเจ้าของโปรเจกต์
+  เปิดใช้ <strong>การยืนยันตัวตนสองชั้น (2-Step Verification)</strong> อยู่</p>
+
+  <h2>6. การแชร์ข้อมูลกับบุคคลที่สาม</h2>
+  <p><strong>เราไม่แชร์ข้อมูลใดๆ ที่ได้จาก Google API กับบุคคลที่สามรายใดทั้งสิ้น</strong>
+  ไม่มีบริการวิเคราะห์ (analytics) ไม่มี tracker ไม่มีโฆษณา ไม่มี CDN ภายนอกที่รับข้อมูลผู้ใช้
+  ผู้ประมวลผลข้อมูลรายเดียวคือ <strong>Google LLC</strong> ในฐานะผู้ให้บริการโครงสร้างพื้นฐาน
+  (Apps Script, Calendar, Firebase)</p>
+
+  <h2>7. สิทธิ์ของผู้ใช้</h2>
+  <p>ผู้ใช้มีสิทธิ์เข้าถึง แก้ไข ขอสำเนา คัดค้านการประมวลผล และขอลบข้อมูลของตน ตาม
+  พ.ร.บ. คุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 (PDPA) โดยดำเนินการได้เองทันทีดังนี้:</p>
+  <ol>
+    <li><strong>ยกเลิกการเชื่อมต่อในแอป</strong> — กดปุ่ม "ยกเลิกการเชื่อมต่อ" ในหน้า "ตั้งค่าปฏิทินเวร"
+      ระบบจะลบ event ทั้งหมดที่สร้างไว้ + ลบข้อมูลที่เก็บไว้ + ลบ trigger ให้อัตโนมัติ</li>
+    <li><strong>ลบเฉพาะ event โดยไม่ตัดการเชื่อมต่อ</strong> — กดปุ่ม "ล้าง event เวรทั้งหมด"</li>
+    <li><strong>ถอนสิทธิ์จากฝั่ง Google โดยตรง</strong> — ที่
+      <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account permissions</a>
+      เลือกแอป "Siriraj Rx Shift Calendar Sync" แล้วกดยกเลิก</li>
+    <li><strong>ปิดการอัปเดตอัตโนมัติอย่างเดียว</strong> — สลับสวิตช์ "อัปเดตอัตโนมัติ"
+      (trigger จะถูกลบ · event ที่ซิงค์ไว้ยังอยู่)</li>
+  </ol>
+  <p>คำขอลบข้อมูลหรือคำถามอื่นๆ ส่งได้ที่อีเมลในข้อ 9 เราจะดำเนินการภายใน <strong>30 วัน</strong></p>
+
+  <h2>8. เด็กและเยาวชน</h2>
+  <p>ระบบนี้ใช้งานโดยบุคลากรวิชาชีพเภสัชกรรมเท่านั้น
+  <strong>ไม่ได้ออกแบบหรือมุ่งหมายให้ผู้มีอายุต่ำกว่า 18 ปีใช้งาน</strong> และเราไม่เก็บข้อมูลจากผู้เยาว์โดยเจตนา</p>
+
+  <h2>9. การเปลี่ยนแปลงนโยบายนี้ และการติดต่อ</h2>
+  <p>หากมีการเปลี่ยนแปลงสาระสำคัญ เราจะปรับวันที่ "อัปเดตล่าสุด" ด้านบน และแจ้งผู้ใช้ผ่านประกาศในระบบ</p>
+  <p><strong>ผู้ควบคุมข้อมูล / ผู้ติดต่อ:</strong> Norapol Uttho —
+  <a href="mailto:norapol.uttho@gmail.com">norapol.uttho@gmail.com</a><br>
+  <strong>เว็บไซต์แอป:</strong> <a href="https://sirxshift.com/">https://sirxshift.com/</a></p>
+
+  <!-- ============================= ENGLISH ============================= -->
+  <div class="divider-en">
+  <h1 id="en">Privacy Policy — Siriraj Rx Shift (Google Calendar Sync)</h1>
+  <p class="updated">Last updated: 3 August 2026 · <a href="#th">ดูฉบับภาษาไทยด้านบน</a></p>
+
+  <p><em>This is a complete English translation of the Thai text above, provided for reviewer convenience.
+  In case of discrepancy, the Thai text is authoritative.</em></p>
+
+  <h2>1. Overview</h2>
+  <p>Siriraj Rx Shift ("the app", "we") is an internal duty-roster system for the Pharmacy Department,
+  Siriraj Hospital, Bangkok, Thailand. The Google Calendar Sync feature is an <strong>optional,
+  opt-in</strong> add-on that mirrors a user's own duty shifts into their personal Google Calendar so
+  they do not have to copy them by hand.</p>
+  <p>Users who do not enable this feature <strong>are never asked for any Google permission</strong>
+  and retain full use of the application.</p>
+
+  <h2>2. OAuth scopes we request, and why</h2>
+  <p>The feature runs in a <strong>separate Google Apps Script project and separate Google Cloud
+  project</strong> (<code>calendar-sync-app</code>) which requests <strong>only these four
+  scopes</strong> — exactly matching the app manifest, with nothing additional:</p>
+  <div class="table-wrap">
+  <table>
+    <tr><th>Scope</th><th>What it is used for</th><th>How it is constrained</th></tr>
+    <tr>
+      <td><span class="scope-name">.../auth/calendar</span></td>
+      <td>Create, update, and delete events representing the signed-in user's own shifts, and let the
+        user <strong>choose or create the destination calendar</strong> (e.g. a separate
+        "Siriraj Rx Shifts" calendar so work shifts do not clutter their personal calendar)</td>
+      <td>Only modifies or deletes events this app created — identified from the "shift ↔ event ID"
+        table held in that user's own private storage · Never stores or transmits the content of any
+        user event · Never accesses another user's calendar</td>
+    </tr>
+    <tr>
+      <td><span class="scope-name">.../auth/script.scriptapp</span></td>
+      <td>Create and delete a time-based trigger <strong>in the user's own execution context</strong>,
+        so the calendar keeps up with roster changes while the app is closed</td>
+      <td>Exactly one trigger (<code>_autoSyncTick</code>) · User can enable/disable it at any time ·
+        Grants no access to any additional Google service</td>
+    </tr>
+    <tr>
+      <td><span class="scope-name">.../auth/script.external_request</span></td>
+      <td>Outbound HTTPS to <strong>our own</strong> Firebase Realtime Database to read "this user's
+        latest shifts" and write a small sync-acknowledgement receipt</td>
+      <td>Single destination:
+        <code>siriraj-rx-shift-default-rtdb.asia-southeast1.firebasedatabase.app</code> ·
+        No third-party service involved · No Google user data is ever sent out</td>
+    </tr>
+    <tr>
+      <td><span class="scope-name">.../auth/userinfo.email</span></td>
+      <td>Read the email address of the Google account the user selected, so we can show which account
+        will receive the shifts and prevent syncing into the wrong account</td>
+      <td>Display and account-matching only · Never transmitted outside the system · Never used for
+        marketing</td>
+    </tr>
+  </table>
+  </div>
+
+  <div class="callout">
+    <p><strong>Why <code>calendar</code> and not the narrower <code>calendar.events</code>:</strong>
+    the feature lets the user <strong>pick an existing destination calendar or create a new dedicated
+    one</strong>. That is calendar-level management (calendar list and calendar objects), which
+    <code>calendar.events</code> cannot do. The only way to use the narrower scope would be to always
+    write into the user's primary calendar — which is <em>worse</em> for user privacy, because work
+    shifts would then be inseparable from personal events and could not be hidden or unsubscribed
+    independently.</p>
+  </div>
+
+  <h2>3. What we access, what we store, and where</h2>
+  <div class="table-wrap">
+  <table>
+    <tr><th>Data</th><th>Where it lives</th><th>Who can reach it</th></tr>
+    <tr>
+      <td><strong>OAuth access / refresh tokens</strong></td>
+      <td><strong>We never store them.</strong> Google Apps Script holds and manages them entirely
+        within Google infrastructure. We hold no copy and have no storage for them.</td>
+      <td>Nobody on our side</td>
+    </tr>
+    <tr>
+      <td><strong>Shift ↔ event ID mapping</strong>, chosen destination calendar</td>
+      <td><code>PropertiesService.getUserProperties()</code> — per-user private storage allocated by
+        Google and bound to that user's account</td>
+      <td><strong>Only script executions running as that user.</strong> The developer cannot read it;
+        other users cannot reach it; no administrator API exposes it</td>
+    </tr>
+    <tr>
+      <td><strong>Selected Google account email</strong></td>
+      <td>Transient memory during execution, plus that user's own <code>PropertiesService</code></td>
+      <td>Same as above</td>
+    </tr>
+    <tr>
+      <td><strong>The user's shift list (feed)</strong></td>
+      <td>Firebase Realtime Database, region <code>asia-southeast1</code> — written by the main system,
+        read by the user's own trigger</td>
+      <td>See §5.6</td>
+    </tr>
+    <tr>
+      <td><strong>Sync acknowledgement (ack)</strong></td>
+      <td>Firebase, same database — counts of events created/updated/deleted plus a timestamp;
+        no event content</td>
+      <td>See §5.6</td>
+    </tr>
+  </table>
+  </div>
+
+  <p><strong>What appears in a calendar event:</strong> date · start and end time · shift type
+  (e.g. "morning shift") · assigned unit or room. <strong>Nothing else.</strong></p>
+
+  <p><strong>What is never involved:</strong> patient data · health information (PHI/PHR) · medical
+  record numbers · clinical records. The system is a staff scheduling tool, not a medical records
+  system, and has never touched such data.</p>
+
+  <p><strong>Data flow is one-way:</strong> app → the user's calendar. We do <strong>not</strong>
+  touch events the app did not create, do <strong>not</strong> access calendars the user did not
+  select, and do <strong>not</strong> pull any calendar content back into the system. During a sync,
+  the app lists events only within the shift date range on the destination calendar, solely to verify
+  that its own previously created events are still present — it checks only the event ID and the
+  location field, reads no event content, and stores or transmits nothing from any other event.</p>
+
+  <h2>4. Purpose of use, and Limited Use compliance</h2>
+  <p>The data is used for exactly one purpose: <strong>reminding the user of their own work
+  shifts</strong> in the calendar they already use daily.</p>
+  <p>Our use and transfer of information received from Google APIs adheres to the
+  <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google
+  API Services User Data Policy</a>, including the <strong>Limited Use</strong> requirements.
+  Specifically we affirm that we do <strong>not</strong>:</p>
+  <ul>
+    <li>use the data for advertising of any kind;</li>
+    <li>sell, rent, or trade the data;</li>
+    <li>transfer the data to third parties, except (a) with the user's explicit consent, (b) for
+      security purposes, or (c) to comply with applicable law;</li>
+    <li>allow humans to read the data, except (a) with the user's explicit consent for a specific
+      support issue, (b) for security purposes, or (c) to comply with applicable law;</li>
+    <li><strong>use Google Workspace API data to develop, train, or improve any generalized or
+      non-personalized artificial intelligence or machine learning model</strong>, whether our own or
+      a third party's. This application makes no AI/ML calls of any kind.</li>
+  </ul>
+
+  <h2>5. Data protection measures</h2>
+
+  <h3>5.1 Encryption in transit</h3>
+  <p>Every network path enforces <strong>HTTPS/TLS 1.2 or higher</strong>; no plain-HTTP path exists
+  anywhere: user's browser ↔ Apps Script web app · Apps Script ↔ Google Calendar API ·
+  Apps Script ↔ Firebase Realtime Database (<code>UrlFetchApp</code> rejects invalid certificates
+  automatically).</p>
+
+  <h3>5.2 Encryption at rest</h3>
+  <p>All data resides in Google infrastructure (Apps Script <code>PropertiesService</code>, Google
+  Sheets, Firebase Realtime Database), which is <strong>encrypted at rest with AES-256 by
+  default</strong>. We operate no servers, no databases, and no disks of our own that hold user data
+  at any point.</p>
+
+  <h3>5.3 Access control — the developer cannot reach users' Google data at all</h3>
+  <p>This is the strongest protection in the design, and it is deliberate:</p>
+  <ul>
+    <li>The app runs as <strong>"execute as user accessing"</strong>. Every Calendar API call executes
+      as that user, with that user's own credentials — never as the developer.</li>
+    <li>There is <strong>no service account, no domain-wide delegation, and no server-side API
+      key</strong> that would let the developer reach anyone's calendar.</li>
+    <li>Mappings and settings live in <code>PropertiesService.getUserProperties()</code>, which Google
+      partitions <strong>per user</strong>. Opening the Apps Script editor as the developer does not
+      expose another user's properties; no API exists to do so.</li>
+    <li>Consequence: <strong>even if the developer's account were compromised, the attacker still
+      could not read any user's calendar or mapping data.</strong></li>
+  </ul>
+
+  <h3>5.4 Token handling</h3>
+  <p>We do not store, log, or transmit any OAuth token. Access and refresh tokens are held entirely by
+  Google Apps Script. When a user revokes access at
+  <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account
+  permissions</a>, authorization ends immediately without requiring any action on our side.</p>
+
+  <h3>5.5 Project isolation for least privilege</h3>
+  <p>The Calendar feature was deliberately split into its <strong>own Apps Script project and its own
+  Google Cloud project</strong>, separate from the main system. The main system (which holds
+  higher-privilege scopes used only for administrator back-office tasks) and the Calendar project
+  <strong>share no credentials whatsoever</strong>. A user connecting their calendar is therefore
+  asked for exactly the four scopes in §2 and nothing from the back-office side.</p>
+
+  <h3>5.6 Roster data in Firebase (feed / ack)</h3>
+  <p><code>calFeed</code> holds a user's shift list keyed by their <strong>internal display
+  name</strong> (not an email address, not a Google ID). Its contents are the same roster information
+  that <strong>every member of the department already sees on the shared duty roster</strong> as a
+  matter of normal operation. <code>calAck</code> holds only summary counts (how many events were
+  created/updated/deleted, and when) — no event content.</p>
+  <p>The database is in region <code>asia-southeast1</code> (Singapore), encrypted at rest, and holds
+  <strong>no data obtained from Google APIs whatsoever</strong> — no tokens, no event IDs, no calendar
+  content.</p>
+
+  <h3>5.7 Logging and auditability</h3>
+  <p>Every script execution is recorded automatically in <strong>Google Cloud Logging
+  (Stackdriver)</strong>, as configured for the project, and each sync run writes an acknowledgement
+  record (<code>calAck</code>) with a timestamp and the number of events created, updated, and
+  deleted — so it is always auditable how many calendar changes were made and when. These records
+  <strong>never contain event content and never contain tokens</strong>.</p>
+
+  <h3>5.8 Retention and deletion</h3>
+  <div class="table-wrap">
+  <table>
+    <tr><th>Data</th><th>Retention</th></tr>
+    <tr><td>Shift ↔ event ID mapping</td><td>For as long as the user keeps the feature enabled · deleted immediately on "Disconnect"</td></tr>
+    <tr><td>Linked account email</td><td>Same</td></tr>
+    <tr><td>The user's <code>calFeed</code> entry</td><td>Holds only the latest published version of each roster month · when a month's roster changes, that month's entry is overwritten wholesale; no edit history is kept</td></tr>
+    <tr><td><code>calAck</code> receipt</td><td>Only the most recent record · overwritten on every sync</td></tr>
+  </table>
+  </div>
+  <p>Pressing <strong>"Disconnect"</strong> in the app (1) deletes <strong>every event this app
+  created</strong> from the user's calendar, (2) deletes the mappings and settings from
+  <code>PropertiesService</code>, (3) deletes the installed trigger, and (4) revokes the script's
+  authorization — all from a single button press. (If a specific event cannot be deleted at that
+  moment — e.g. the calendar is temporarily unreachable — the user is informed, and the mapping for
+  that one event is retained so deletion can be completed on a later attempt rather than leaving an
+  orphaned event behind.)</p>
+
+  <h3>5.9 Breach response</h3>
+  <p>If we become aware of an incident affecting user data, we will (1) suspend the feature and revoke
+  authorizations immediately, (2) notify affected users by email and via in-app announcement
+  <strong>within 72 hours</strong> of becoming aware, and (3) notify Google through the designated
+  channel if the incident involves data obtained from Google APIs.</p>
+
+  <h3>5.10 Personnel with access</h3>
+  <p>The system is built and maintained by a <strong>single developer</strong> (the contact in §9).
+  There are no employees, no subcontractors, and no third parties with access. The developer's Google
+  account that owns the project has <strong>2-Step Verification enabled</strong>.</p>
+
+  <h2>6. Third-party sharing</h2>
+  <p><strong>We share no Google API data with any third party.</strong> There are no analytics
+  services, no trackers, no advertising, and no external CDN that receives user data. The only data
+  processor is <strong>Google LLC</strong>, as the infrastructure provider (Apps Script, Calendar,
+  Firebase).</p>
+
+  <h2>7. User rights</h2>
+  <p>Users have the right to access, correct, obtain a copy of, object to the processing of, and
+  delete their data, under Thailand's Personal Data Protection Act B.E. 2562 (PDPA). All of it can be
+  exercised immediately and without contacting us:</p>
+  <ol>
+    <li><strong>Disconnect in-app</strong> — the "Disconnect" button on the "Calendar settings" screen
+      deletes every event created, deletes all stored data, and removes the trigger.</li>
+    <li><strong>Delete events only, staying connected</strong> — the "Clear all shift events" button.</li>
+    <li><strong>Revoke from Google's side</strong> — at
+      <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account
+      permissions</a>, select "Siriraj Rx Shift Calendar Sync" and remove access.</li>
+    <li><strong>Turn off automatic updates only</strong> — the "Automatic updates" toggle (removes the
+      trigger; already synced events remain).</li>
+  </ol>
+  <p>Deletion requests and other enquiries: the email in §9. We respond within <strong>30 days</strong>.</p>
+
+  <h2>8. Children</h2>
+  <p>The system is used exclusively by licensed pharmacy professionals. It is <strong>not designed for
+  or directed at anyone under 18</strong>, and we do not knowingly collect data from minors.</p>
+
+  <h2>9. Changes to this policy, and contact</h2>
+  <p>If we make material changes we will update the "Last updated" date above and notify users through
+  an in-app announcement.</p>
+  <p><strong>Data controller / contact:</strong> Norapol Uttho —
+  <a href="mailto:norapol.uttho@gmail.com">norapol.uttho@gmail.com</a><br>
+  <strong>App website:</strong> <a href="https://sirxshift.com/">https://sirxshift.com/</a></p>
+  </div>
+
+  <footer>Siriraj Rx Shift — Pharmacy Department, Siriraj Hospital · Bangkok, Thailand</footer>
 </main>
 </body>
 </html>

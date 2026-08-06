@@ -3,91 +3,196 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Siriraj Rx Shift — ระบบจัดตารางเวรฝ่ายเภสัชกรรม</title>
+<title>Siriraj Rx Shift — ระบบตารางเวรฝ่ายเภสัชกรรม โรงพยาบาลศิริราช</title>
+<meta name="description" content="Siriraj Rx Shift — an internal duty-roster and shift-swap system for the Pharmacy Department, Siriraj Hospital, with optional Google Calendar sync.">
 <style>
   :root {
-    --bg: #ffffff;
-    --fg: #1a1a1a;
-    --muted: #5a5a5a;
-    --border: #e2e2e2;
-    --accent: #1e40af;
-    --card-bg: #f7f7f8;
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #5a5a5a; --border: #e2e2e2;
+    --accent: #1e40af; --card-bg: #f7f7f8;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #14161a;
-      --fg: #e8e8e8;
-      --muted: #a0a0a0;
-      --border: #2c2f36;
-      --accent: #7fa2ff;
-      --card-bg: #1c1f26;
+      --bg: #14161a; --fg: #e8e8e8; --muted: #a0a0a0; --border: #2c2f36;
+      --accent: #7fa2ff; --card-bg: #1c1f26;
     }
   }
   * { box-sizing: border-box; }
   body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--fg);
+    margin: 0; background: var(--bg); color: var(--fg);
     font-family: "Noto Sans Thai", "Segoe UI", system-ui, -apple-system, sans-serif;
-    line-height: 1.7;
+    line-height: 1.75;
   }
-  main {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 2.5rem 1.25rem 5rem;
-  }
-  h1 {
-    font-size: 1.6rem;
-    margin-bottom: 0.25rem;
-  }
-  .tagline {
-    color: var(--muted);
-    font-size: 1rem;
-    margin-bottom: 2rem;
-  }
-  h2 {
-    font-size: 1.15rem;
-    margin-top: 2.2rem;
-    padding-bottom: 0.4rem;
-    border-bottom: 1px solid var(--border);
-  }
+  main { max-width: 800px; margin: 0 auto; padding: 3rem 1.25rem 5rem; }
+  header { border-bottom: 1px solid var(--border); padding-bottom: 1.75rem; margin-bottom: 2rem; }
+  h1 { font-size: 1.75rem; margin: 0 0 .4rem; line-height: 1.35; }
+  .tagline { color: var(--muted); margin: 0; }
+  h2 { font-size: 1.2rem; margin-top: 2.6rem; padding-bottom: .4rem; border-bottom: 1px solid var(--border); }
+  h3 { font-size: 1rem; margin-top: 1.6rem; }
   a { color: var(--accent); }
   ul { padding-left: 1.4rem; }
-  li { margin-bottom: 0.4rem; }
+  li { margin-bottom: .45rem; }
+  code {
+    background: var(--card-bg); padding: .12rem .38rem; border-radius: 4px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .88em;
+    overflow-wrap: break-word;
+  }
+  /* ชื่อ scope ต้องอ่านเป็นก้อนเดียว ไม่ตัดกลางคำ — ตารางเลื่อนแนวนอนแทน */
+  td:first-child code { white-space: nowrap; }
   .card {
-    margin-top: 1.5rem;
-    padding: 1.25rem 1.5rem;
-    background: var(--card-bg);
-    border-radius: 10px;
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.25rem 1.5rem; margin: 1.5rem 0;
   }
-  .card h2 { border-bottom: none; margin-top: 0; }
+  .card p:first-child { margin-top: 0; }
+  .card p:last-child { margin-bottom: 0; }
+  .table-wrap { overflow-x: auto; margin: 1rem 0; }
+  table { border-collapse: collapse; width: 100%; min-width: 480px; font-size: .93rem; }
+  th, td { border: 1px solid var(--border); padding: .55rem .7rem; text-align: left; vertical-align: top; }
+  th { background: var(--card-bg); font-weight: 600; }
+  .en { margin-top: 3.5rem; padding-top: 2rem; border-top: 3px double var(--border); }
   footer {
-    margin-top: 3rem;
-    color: var(--muted);
-    font-size: 0.85rem;
+    margin-top: 3.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border);
+    color: var(--muted); font-size: .88rem;
   }
+  footer a { margin-right: 1rem; }
 </style>
 </head>
 <body>
 <main>
-  <h1>Siriraj Rx Shift</h1>
-  <p class="tagline">ระบบจัดตารางเวรภายในของฝ่ายเภสัชกรรม โรงพยาบาลศิริราช</p>
 
-  <h2>เกี่ยวกับระบบ</h2>
-  <p>Siriraj Rx Shift เป็นระบบภายในที่ฝ่ายเภสัชกรรม โรงพยาบาลศิริราช ใช้จัดตารางเวรทำงานของเภสัชกร (สร้างตารางเวร แลกเวร ยกเวร บันทึกโน้ตประจำเวร) ผู้ใช้เป็นบุคลากรของฝ่ายเภสัชกรรมเท่านั้น เข้าใช้งานด้วยบัญชีภายในระบบ</p>
+  <header>
+    <h1>Siriraj Rx Shift</h1>
+    <p class="tagline">ระบบตารางเวรและการแลก/ยกเวร — ฝ่ายเภสัชกรรม โรงพยาบาลศิริราช<br>
+    Duty-roster and shift-swap system for the Pharmacy Department, Siriraj Hospital, Bangkok, Thailand</p>
+  </header>
+
+  <h2>ระบบนี้คืออะไร</h2>
+  <p>Siriraj Rx Shift เป็นระบบภายในสำหรับจัดการและเผยแพร่ตารางเวรของเภสัชกร ฝ่ายเภสัชกรรม
+  โรงพยาบาลศิริราช ใช้งานจริงกับบุคลากรประมาณ 300–400 คน ระบบเข้ามาแทนวิธีเดิมที่ใช้ไฟล์ Excel
+  ส่งต่อกันในกลุ่มแชท ด้วยตารางกลางแหล่งเดียวที่ทุกคนเห็นตรงกัน พร้อมประวัติการเปลี่ยนแปลงทุกครั้ง</p>
+
+  <h3>ความสามารถหลัก</h3>
+  <ul>
+    <li>ดูตารางเวรของทั้งหน่วยงาน และกรองดูเฉพาะเวรของตัวเอง</li>
+    <li>ยกเวรและแลกเวรกับเพื่อนร่วมงาน พร้อมขั้นตอนยืนยันสองฝ่ายและบันทึกประวัติ (audit trail)</li>
+    <li>แจ้งเตือนเมื่อตารางเวรเปลี่ยนแปลง</li>
+    <li><strong>ซิงค์เวรของตัวเองเข้าปฏิทิน Google ส่วนตัวโดยอัตโนมัติ (ทางเลือกเสริม)</strong></li>
+  </ul>
+
+  <p><strong>ระบบนี้ไม่เกี่ยวข้องกับข้อมูลผู้ป่วยใดๆ ทั้งสิ้น</strong> — เป็นระบบจัดตารางเวรของบุคลากร
+  ไม่ใช่ระบบเวชระเบียน ไม่มีชื่อผู้ป่วย ไม่มีเลข HN ไม่มีข้อมูลทางการแพทย์อยู่ในระบบ</p>
 
   <h2>ฟีเจอร์ Google Calendar Sync</h2>
-  <p>เป็นฟีเจอร์เสริมแบบ opt-in ที่ให้ผู้ใช้เชื่อมต่อบัญชี Google ส่วนตัวของตนเอง เพื่อให้ระบบสร้าง/อัปเดต/ลบรายการเวรที่ผู้ใช้ถืออยู่ลงในปฏิทิน Google ของผู้ใช้คนนั้นโดยอัตโนมัติ — ช่วยให้เห็นเวรของตัวเองในปฏิทินที่ใช้อยู่แล้วในชีวิตประจำวัน โดยไม่ต้องคัดลอกด้วยมือ</p>
 
   <div class="card">
-    <h2>นโยบายความเป็นส่วนตัว</h2>
-    <p>อ่านรายละเอียดข้อมูลที่เข้าถึง เก็บ และใช้งานสำหรับฟีเจอร์ Google Calendar Sync ได้ที่หน้า <a href="privacy-policy.html">นโยบายความเป็นส่วนตัว</a></p>
+    <p>ฟีเจอร์นี้เป็น <strong>ทางเลือกเสริมแบบ opt-in</strong> ผู้ใช้ที่ไม่กดเปิด
+    <strong>จะไม่ถูกขอสิทธิ์ Google ใดๆ เลย</strong> และใช้ระบบได้ครบทุกฟังก์ชันตามปกติ</p>
   </div>
 
-  <h2>ติดต่อ</h2>
-  <p>อีเมลผู้ดูแลระบบ: <a href="mailto:norapol.uttho@gmail.com">norapol.uttho@gmail.com</a></p>
+  <p>ปัญหาที่แก้: เดิมผู้ใช้ต้องเปิดตารางเวรแล้วคัดลอกวันเวรของตัวเองไปจดในปฏิทินส่วนตัวเองทีละวัน
+  เมื่อมีการแลก/ยกเวรภายหลังก็ต้องตามแก้เอง ซึ่งเป็นสาเหตุหลักของการ "ลืมเวร"</p>
 
-  <footer>Siriraj Rx Shift — Pharmacy Department, Siriraj Hospital</footer>
+  <p>เมื่อผู้ใช้กดเชื่อมต่อและอนุญาตสิทธิ์ ระบบจะ:</p>
+  <ul>
+    <li>ให้ผู้ใช้<strong>เลือกปฏิทินปลายทาง</strong> หรือสร้างปฏิทินใหม่แยกต่างหาก (เช่น "Siriraj Rx Shifts")
+      เพื่อไม่ให้เวรงานปนกับปฏิทินส่วนตัว</li>
+    <li>สร้าง event ตามเวรที่ผู้ใช้คนนั้นถืออยู่ — วันที่ เวลาเริ่ม-จบ ประเภทเวร และหน่วยงาน/ห้องที่ประจำ</li>
+    <li>แก้ไขหรือลบ event เหล่านั้นให้อัตโนมัติเมื่อมีการแลก/ยกเวร</li>
+    <li>อัปเดตต่อเนื่องเป็นระยะแม้ผู้ใช้ปิดแอปอยู่ (เปิด/ปิดได้เอง)</li>
+  </ul>
+
+  <p>ระบบ<strong>ไม่แตะต้อง</strong> event ที่ระบบไม่ได้สร้าง <strong>ไม่เข้าถึง</strong>ปฏิทินของผู้อื่น
+  และ<strong>ไม่ดึงเนื้อหาใดจากปฏิทิน</strong>กลับเข้าระบบ — ข้อมูลไหลทางเดียวคือ ระบบ → ปฏิทินของผู้ใช้</p>
+
+  <h3>สิทธิ์ที่ขอ</h3>
+  <div class="table-wrap">
+  <table>
+    <tr><th>สิทธิ์</th><th>ใช้ทำอะไร</th></tr>
+    <tr><td><code>.../auth/calendar</code></td><td>สร้าง/แก้ไข/ลบ event เวรของผู้ใช้เอง และให้ผู้ใช้เลือกหรือสร้างปฏิทินปลายทาง</td></tr>
+    <tr><td><code>.../auth/script.scriptapp</code></td><td>ตั้งงานอัปเดตอัตโนมัติในบัญชีของผู้ใช้เอง</td></tr>
+    <tr><td><code>.../auth/script.external_request</code></td><td>อ่านเวรล่าสุดของผู้ใช้จากฐานข้อมูลของระบบเอง</td></tr>
+    <tr><td><code>.../auth/userinfo.email</code></td><td>รู้ว่ากำลังซิงค์เข้าบัญชี Google ไหน เพื่อกันซิงค์ผิดบัญชี</td></tr>
+  </table>
+  </div>
+
+  <h3>การยกเลิก</h3>
+  <p>ผู้ใช้กดปุ่ม "ยกเลิกการเชื่อมต่อ" ในแอปได้ตลอดเวลา ระบบจะลบ event ทั้งหมดที่สร้างไว้ออกจากปฏิทิน
+  ลบข้อมูลที่เก็บไว้ และเพิกถอนสิทธิ์ให้ทันที หรือจะถอนสิทธิ์โดยตรงที่
+  <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account permissions</a> ก็ได้</p>
+
+  <p>รายละเอียดทั้งหมดว่าเก็บข้อมูลอะไร ปกป้องอย่างไร และลบอย่างไร อยู่ใน
+  <a href="privacy-policy.html"><strong>นโยบายความเป็นส่วนตัว</strong></a></p>
+
+  <h2>ผู้ใช้งานและการเข้าถึง</h2>
+  <p>ระบบนี้ใช้ภายในฝ่ายเภสัชกรรม โรงพยาบาลศิริราช การเข้าใช้งานต้องมีบัญชีที่ผู้ดูแลระบบสร้างให้เท่านั้น
+  จึงไม่เปิดให้ลงทะเบียนแบบสาธารณะ ผู้ที่ต้องการเข้าถึงเพื่อการตรวจสอบ กรุณาติดต่อตามอีเมลด้านล่าง</p>
+
+  <!-- ============================= ENGLISH ============================= -->
+  <div class="en">
+  <h2>About this application (English)</h2>
+  <p>Siriraj Rx Shift is an internal duty-roster system for the Pharmacy Department of Siriraj
+  Hospital in Bangkok, Thailand, used by roughly 300–400 pharmacy staff. It replaces the previous
+  workflow — Excel files circulated through group chat — with a single shared roster and a full audit
+  trail for every shift hand-off and swap.</p>
+
+  <p><strong>The system handles no patient data of any kind.</strong> It is a staff scheduling tool,
+  not a medical records system: there are no patient names, no medical record numbers, and no clinical
+  information anywhere in it.</p>
+
+  <h3>Google Calendar Sync</h3>
+  <p>Calendar sync is an <strong>optional, opt-in</strong> feature. Users who do not enable it are
+  never asked for any Google permission and retain full use of the application.</p>
+
+  <p>It solves a concrete problem: staff previously had to read the roster and copy their own shift
+  dates into their personal calendar by hand, then chase every subsequent swap manually — the main
+  cause of missed shifts.</p>
+
+  <p>Once a user connects and grants consent, the app:</p>
+  <ul>
+    <li>lets the user <strong>choose a destination calendar</strong> or create a new dedicated one
+      (e.g. "Siriraj Rx Shifts"), so work shifts stay separate from personal events;</li>
+    <li>creates events for the shifts that user holds — date, start and end time, shift type, and
+      assigned unit or room;</li>
+    <li>updates or deletes those events automatically when a shift is swapped or handed off;</li>
+    <li>keeps syncing periodically even when the app is closed (user-controlled, can be turned off).</li>
+  </ul>
+
+  <p>The app does <strong>not</strong> touch events it did not create, does <strong>not</strong>
+  access anyone else's calendar, and does <strong>not</strong> pull any calendar content back into
+  the system. Data flows one way only: app → the user's calendar.</p>
+
+  <h3>Scopes requested</h3>
+  <div class="table-wrap">
+  <table>
+    <tr><th>Scope</th><th>Used for</th></tr>
+    <tr><td><code>https://www.googleapis.com/auth/calendar</code></td><td>Create/update/delete the user's own shift events, and let the user select or create the destination calendar</td></tr>
+    <tr><td><code>https://www.googleapis.com/auth/script.scriptapp</code></td><td>Install the background auto-update trigger in the user's own account</td></tr>
+    <tr><td><code>https://www.googleapis.com/auth/script.external_request</code></td><td>Read the user's latest shifts from the system's own database</td></tr>
+    <tr><td><code>https://www.googleapis.com/auth/userinfo.email</code></td><td>Identify which Google account the shifts sync into, to prevent syncing to the wrong account</td></tr>
+  </table>
+  </div>
+
+  <h3>Revoking access</h3>
+  <p>The in-app "Disconnect" button removes every event the app created, deletes all stored data, and
+  revokes the script's authorization immediately. Access can also be revoked directly at
+  <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account
+  permissions</a>. Full details of what is stored, how it is protected, and how it is deleted are in
+  the <a href="privacy-policy.html"><strong>Privacy Policy</strong></a>.</p>
+
+  <h3>Access</h3>
+  <p>The application is used internally within the Pharmacy Department and requires an account created
+  by an administrator; there is no public sign-up. Reviewers who need access for evaluation should
+  contact the email below and credentials will be provided.</p>
+  </div>
+
+  <footer>
+    <p>
+      <a href="privacy-policy.html">นโยบายความเป็นส่วนตัว / Privacy Policy</a>
+      <a href="mailto:norapol.uttho@gmail.com">norapol.uttho@gmail.com</a>
+    </p>
+    <p>Siriraj Rx Shift — Pharmacy Department, Siriraj Hospital, Bangkok, Thailand<br>
+    ผู้พัฒนาและผู้ดูแลระบบ: Norapol Uttho</p>
+  </footer>
+
 </main>
 </body>
 </html>
